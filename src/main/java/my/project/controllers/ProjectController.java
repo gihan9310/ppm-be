@@ -8,11 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.Utilities;
 import javax.validation.Valid;
-import java.util.List;
 
 
 @RestController
@@ -27,7 +26,7 @@ public class ProjectController {
     public ResponseEntity<?> createProject(@Valid @RequestBody Project project, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
-            return  new ResponseEntity (ErrorUtils.errorFlields(bindingResult.getFieldErrors()),HttpStatus.BAD_REQUEST);
+            return ErrorUtils.errorFlields(bindingResult.getFieldErrors());
         }
 
         Project pro = projectService.saveOrupdateProject(project);

@@ -33,6 +33,7 @@ public class BackLog {
     @JsonIgnore
     private Project project;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "backLog",cascade = CascadeType.REFRESH,orphanRemoval = true)
     private List<ProjectTask> projectTasks;
+
 }

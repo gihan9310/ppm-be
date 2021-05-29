@@ -22,4 +22,10 @@ public class CustomResponsExceptionHandler extends ResponseEntityExceptionHandle
         return  new ResponseEntity(response, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleBackLogNotFoundException(ProjectNotFoundException exception , WebRequest request){
+        ProjectNotFountResponse response = new ProjectNotFountResponse(exception.getMessage());
+        return  new ResponseEntity(response, HttpStatus.BAD_REQUEST);
+    }
+
 }
