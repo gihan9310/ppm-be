@@ -40,7 +40,8 @@ public class ProjectTask {
     private LocalDateTime create_At;
     private LocalDateTime update_At;
 
-    @ManyToOne(fetch = FetchType.EAGER )
+    @ManyToOne(fetch = FetchType.EAGER
+    )
     @JoinColumn(name = "backlog_id",updatable = false,nullable = false)
     @JsonIgnore
     private BackLog backLog;
